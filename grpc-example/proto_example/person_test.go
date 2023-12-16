@@ -1,4 +1,4 @@
-package Person
+package proto_example
 
 import (
 	"fmt"

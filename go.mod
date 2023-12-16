@@ -1,6 +1,6 @@
 module github.com/starshm/go-example
 
-go 1.18
+go 1.19
 
 require (
 	github.com/cloudwego/hertz v0.6.8
