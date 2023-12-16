@@ -1,0 +1,12 @@
+syntax = "proto3";
+option go_package = "./;pc";
+package component;
+
+message CPU {
+  string Name = 1;
+  string Frequency = 2;
+}
+message Memory {
+  string Name = 1;
+  string Cap = 2;
+}

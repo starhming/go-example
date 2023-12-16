@@ -1,0 +1,10 @@
+syntax = "proto3";
+option go_package = "./;pc";
+package computer;
+import "grpc-example/proto-example2/component.proto";
+
+message Computer {
+  string name = 1;
+  component.CPU cpu = 2;
+  component.Memory memory = 3;
+}
