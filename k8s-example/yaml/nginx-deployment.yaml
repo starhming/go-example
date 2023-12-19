@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx-dep
+spec:
+  replicas: 3
+  # RollingUpdate允许你管理Deployment的更改并确保使用滚动更新来逐步Deployment更改：
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: nginx-dep
+  template:
+    metadata:
+      name: nginx-dep
+      labels:
+        app: nginx-dep
+    spec:
+      containers:
+        - name: nginx-deployment
+          image: nginx
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      

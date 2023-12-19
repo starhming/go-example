@@ -1,0 +1,6 @@
+# Namespace 定义
+# 命名空间允许你对资源进行逻辑分组并管理应用程序不同部分的访问控制
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
