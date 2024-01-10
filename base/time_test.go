@@ -41,9 +41,13 @@ func formatPrintTime(t time.Time) {
 }
 
 func TestParseTime(t *testing.T) {
-	ti, _ := time.Parse(SimpleTimeFormat, "2023-11-16 19:06:00")
-	fmt.Println(ti.UnixMilli())
+	t1, _ := time.Parse(SimpleTimeFormat, "2023-11-16 19:06:00")
+	fmt.Println(t1.UnixMilli())
+
+	t2, _ := time.Parse(time.RFC3339, "2024-03-13T11:27:00+08:00")
+	fmt.Println(t2.UnixMilli())
 
 	timestampDefault, _ := util.ConvertTimestampDefault("2023-11-16 19:06:00")
 	fmt.Println(timestampDefault)
+
 }

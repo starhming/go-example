@@ -33,3 +33,26 @@ func TestMapExample(t *testing.T) {
 	marshal, _ := json.Marshal(m)
 	fmt.Println(string(marshal))
 }
+
+type DiagData map[int]string
+
+func TestStructAlias(t *testing.T) {
+	m := map[int]string{1: "1", 2: "2"}
+
+	var dd DiagData
+	dd = m
+
+	fmt.Println(dd)
+}
+
+func TestName(t *testing.T) {
+	var aa []int
+	arrAdd(aa)
+	fmt.Println(aa)
+}
+
+func arrAdd(arr []int) {
+	for i := 0; i < 10; i++ {
+		arr = append(arr, i)
+	}
+}
