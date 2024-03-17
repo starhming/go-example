@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lifecycle-demo
+spec:
+  containers:
+- name: lifecycle-demo-container
+  image: nginx
+  lifecycle:
+    postStart: #在容器启动后，立刻执行一个指定的操作, postStart 执行超时或者错误, k8s 会在 Events 中报出该容器的
+      exec:    #错误信息，导致 Pod 也处于失败的状态。
+        command: ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
+    preStop: #在这个容器被删除之前，执行
+      exec:
+        command: ["/usr/sbin/nginx","-s","quit"]
