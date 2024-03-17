@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-server
+  labels:
+    app: http-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-server
+  template:
+    metadata:
+      name: http-server
+      labels:
+        app: http-server
+    spec:
+      containers:
+        - name: http-server
+          image: minghai1024/http-server:v1
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      
