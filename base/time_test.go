@@ -49,5 +49,9 @@ func TestParseTime(t *testing.T) {
 
 	timestampDefault, _ := util.ConvertTimestampDefault("2023-11-16 19:06:00")
 	fmt.Println(timestampDefault)
+}
 
+func TestFormatTime(t *testing.T) {
+	tenHourMS := time.Hour.Milliseconds() * 10
+	fmt.Println(tenHourMS)
 }

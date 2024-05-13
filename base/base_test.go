@@ -3,6 +3,7 @@ package base
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -55,4 +56,23 @@ func arrAdd(arr []int) {
 	for i := 0; i < 10; i++ {
 		arr = append(arr, i)
 	}
+}
+
+func TestFieldType(t *testing.T) {
+	type PC struct {
+		Cpu  any    `json:"cpu,omitempty"`
+		Name string `json:"name"`
+	}
+
+	pc := PC{Cpu: 100.1, Name: "Alienware"}
+
+	//typ := reflect.TypeOf(pc)
+	val := reflect.ValueOf(pc)
+
+	v := val.Field(0).Interface()
+	fmt.Println(v)
+
+	v = val.Field(1).Interface()
+	fmt.Println(v)
+
 }
