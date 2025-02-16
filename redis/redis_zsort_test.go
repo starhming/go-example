@@ -19,7 +19,7 @@ func TestZsortBase(t *testing.T) {
 }
 
 func RedisZRange[T any](ctx context.Context, key string, start, end int64) ([]T, error) {
-	arr, err := rdb.ZRangeWithScores(ctx, key, start, end).Result()
+	arr, err := redisCli.ZRangeWithScores(ctx, key, start, end).Result()
 	if err != nil {
 		return nil, err
 	}

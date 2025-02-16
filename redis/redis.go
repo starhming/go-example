@@ -2,13 +2,13 @@ package redis
 
 import "github.com/redis/go-redis/v9"
 
-var rdb *redis.Client
+var redisCli *redis.Client
 
 func init() {
-	rdb = redis.NewClient(&redis.Options{
+	redisCli = redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
-		Password: "foobared", // 没有密码，默认值
-		DB:       0,          // 默认DB 0
+		Password: "", // 没有密码，默认值
+		DB:       0,  // 默认DB 0
 	})
 }
 
