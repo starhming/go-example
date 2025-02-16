@@ -51,3 +51,17 @@ func TestParseTime(t *testing.T) {
 	fmt.Println(timestampDefault)
 
 }
+
+func TestSince(t *testing.T) {
+	oldTime := time.Now().Add(-time.Minute * 5)
+	since := time.Since(oldTime)
+	fmt.Println(since.Milliseconds())
+
+	fmt.Println(1e6)
+}
+
+func TestTimeUnit(t *testing.T) {
+	a := 1733475583681
+	b := 10000000000
+	fmt.Println(a < b)
+}

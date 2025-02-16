@@ -21,3 +21,20 @@ func process(taskId string, callback func()) {
 	fmt.Println(taskId)
 	callback()
 }
+
+func TestDeferFunc(t *testing.T) {
+	type Temp struct {
+		a int
+		b int
+	}
+
+	temp := Temp{a: 1, b: 2}
+	defer func() {
+		fmt.Println("defer func")
+		fmt.Println(temp)
+	}()
+
+	temp.a = 2
+	temp.b = 3
+	fmt.Println(temp)
+}

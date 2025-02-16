@@ -21,3 +21,30 @@ func printChannel(ch chan string) {
 		fmt.Println(a)
 	}
 }
+
+func TestChannelList(t *testing.T) {
+	ch := make(chan string, 1000)
+	addToChannel(ch)
+
+	close(ch)
+
+	for i := 0; i < 3; i++ {
+		fmt.Println(<-ch)
+	}
+}
+
+func addToChannel(ch chan string) {
+	ch <- "hello"
+	ch <- "world"
+	ch <- "!"
+}
+
+func TestChannel(t *testing.T) {
+	arr := getDataArr()
+	l := len(arr)
+	fmt.Println(l)
+}
+
+func getDataArr() []string {
+	return nil
+}

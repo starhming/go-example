@@ -3,6 +3,7 @@ package base
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 	"testing"
 )
 
@@ -55,4 +56,26 @@ func arrAdd(arr []int) {
 	for i := 0; i < 10; i++ {
 		arr = append(arr, i)
 	}
+}
+
+func TestString(t *testing.T) {
+	var builder strings.Builder
+	for i := 0; i < 10; i++ {
+		builder.WriteString(fmt.Sprintf("%d", i))
+	}
+	fmt.Println(builder.String())
+}
+
+func TestSliceBase(t *testing.T) {
+	arr2 := make([]int, 0)
+	var arr []int
+
+	if arr == nil {
+		fmt.Println("arr is nil")
+	}
+	arr2 = append(arr2, arr...)
+	arr2 = append(arr2, arr...)
+	arr2 = append(arr2, arr...)
+
+	fmt.Println(len(arr2), cap(arr2))
 }

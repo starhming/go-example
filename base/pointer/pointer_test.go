@@ -25,3 +25,19 @@ func TestPointerDemo1(t *testing.T) {
 
 	runtime.Goexit()
 }
+
+func TestPointerConvert(t *testing.T) {
+	txt := "TestPointerConvert"
+
+	bytes := ([]byte)(txt)
+
+	fmt.Println(bytes)
+	bytes[0] = 80
+	fmt.Println(bytes)
+
+	fmt.Println(string(bytes))
+}
+
+func byteArrConvertString(s []byte) string {
+	return *(*string)(unsafe.Pointer(&s))
+}
